@@ -8,9 +8,9 @@ permalink: /equipo/
 RECONECTA está coordinado científicamente por **IMEDEA (CSIC–UIB)** y se desarrolla en colaboración con entidades del sector pesquero y usuarios recreativos en Illes Balears.
 
 ## Entidades colaboradoras (cartas de apoyo)
-A continuación se listan las entidades que han respaldado el proyecto mediante cartas de apoyo/colaboración, con enlace a su web:
+A continuación se listan las entidades que han respaldado el proyecto mediante cartas de apoyo/colaboración
 
-- **Federació Balear de Confraries de Pescadors**: https://www.pescadorsdebalears.com/  [oai_citation:0‡pescadorsdebalears.com](https://www.pescadorsdebalears.com/?utm_source=chatgpt.com)  
+- [**Federació Balear de Confraries de Pescadors**](https://www.pescadorsdebalears.com/)  
 - **Asociación Mallorquina de Pesca Marítima Recreativa Responsable (AMPRR)**: https://www.amprr.es/  [oai_citation:1‡amprr.es](https://www.amprr.es/?utm_source=chatgpt.com)  
 - **Cofradía de Pescadores de Pollença** (referencia en la web de la Federació): https://www.pescadorsdebalears.com/confraries-pescadors.html  [oai_citation:2‡pescadorsdebalears.com](https://www.pescadorsdebalears.com/confraries-pescadors.html?utm_source=chatgpt.com)  
 - **Cofradía de Pescadores de Mahón** (presencia pública): https://www.facebook.com/Cofrad%C3%ADa-de-Pescadores-de-Mah%C3%B3n-312969585462584/  [oai_citation:3‡Facebook](https://www.facebook.com/Cofrad%C3%ADa-de-Pescadores-de-Mah%C3%B3n-312969585462584/?utm_source=chatgpt.com)  
@@ -62,5 +62,3 @@ Listado del equipo con información básica, enlace institucional y ORCID (cuand
   Perfil (ICM-CSIC): https://www.icm.csic.es/en/staff/francisco-javier-maynou-hernandez-2011  [oai_citation:18‡icm.csic.es](https://www.icm.csic.es/en/staff/francisco-javier-maynou-hernandez-2011?utm_source=chatgpt.com)  
   ORCID: https://orcid.org/0000-0001-7200-6485  [oai_citation:19‡digital.pre.csic.es](https://digital.pre.csic.es/cris/rp/rp07101?filternamecrisrp.publications=subject&filterquerycrisrp.publications=Mediterranean&filtertypecrisrp.publications=equals&open=journal&utm_source=chatgpt.com)  
 
----
-_Nota: esta página puede ampliarse con fichas individuales (foto, líneas de trabajo, tareas en el proyecto y contacto institucional) a medida que se confirme el equipo técnico y de apoyo._
