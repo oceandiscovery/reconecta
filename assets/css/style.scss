@@ -4,3 +4,31 @@
 @import "{{ site.theme }}";
 
 /* Tu CSS adicional aquí */
+.reconecta-actions{
+  margin: 1rem 0 1.25rem 0;
+  display: flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+}
+
+.reconecta-btn{
+  display: inline-block;
+  padding: .55rem .9rem;
+  border-radius: .6rem;
+  text-decoration: none !important;
+  font-weight: 600;
+  background: #159957; /* verde Cayman */
+  color: #fff !important;
+  border: 1px solid rgba(0,0,0,.08);
+}
+
+.reconecta-btn:hover{
+  text-decoration: none !important;
+  filter: brightness(0.97);
+}
+
+.reconecta-btn--secondary{
+  background: #fff;
+  color: #155799 !important; /* azul Cayman */
+  border: 1px solid rgba(0,0,0,.14);
+}
