@@ -1,10 +1,7 @@
 ---
 layout: page
-title: Inicio
+title: RECONECTA
 ---
-
-# RECONECTA
-**Reservas conectadas para una gestión pesquera resiliente en Mallorca**
 
 RECONECTA evalúa y refuerza la conectividad ecológica entre Espacios Marinos Protegidos (EMP) y Reservas Marinas de Interés Pesquero (RMIP) en **Mallorca**, integrando evidencia ecológica y participación social para apoyar decisiones de gestión pesquera y conservación.
 
