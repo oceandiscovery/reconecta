@@ -1,0 +1,43 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "es-ES" }}">
+  <head>
+    <meta charset="UTF-8">
+    {% seo %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+  </head>
+
+  <body>
+    <header class="page-header" role="banner">
+      <h1 class="project-name">{{ page.title | default: site.title }}</h1>
+      <h2 class="project-tagline">{{ page.description | default: site.description }}</h2>
+
+      <!-- Botones de navegación (sustituyen "View on GitHub") -->
+      <a class="btn" href="{{ site.baseurl }}/">Inicio</a>
+      <a class="btn" href="{{ site.baseurl }}/proyecto/">Proyecto</a>
+      <a class="btn" href="{{ site.baseurl }}/metodologia/">Metodología</a>
+      <a class="btn" href="{{ site.baseurl }}/resultados/">Resultados</a>
+      <a class="btn" href="{{ site.baseurl }}/equipo/">Equipo</a>
+      <a class="btn" href="{{ site.baseurl }}/noticias/">Noticias</a>
+      <a class="btn" href="{{ site.baseurl }}/transparencia/">Transparencia</a>
+      <a class="btn" href="{{ site.baseurl }}/contacto/">Contacto</a>
+      <a class="btn" href="{{ site.baseurl }}/recursos/">Recursos</a>
+      <a class="btn" href="https://reconecta.shinyapps.io/visor/" target="_blank" rel="noopener">Visor/Atlas</a>
+
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      {{ content }}
+      <footer class="site-footer">
+        <span class="site-footer-owner">
+          <!-- Si quieres mantener un enlace discreto al repo, déjalo; si no, bórralo -->
+          <a href="{{ site.github.repository_url }}">Repositorio</a>.
+        </span>
+      </footer>
+    </main>
+  </body>
+</html>
