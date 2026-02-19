@@ -5,7 +5,7 @@ permalink: /transparencia/
 ---
 
 # Transparencia
-Esta página recoge información básica del proyecto. Completa únicamente con datos verificados.
+La siguiente tabla recoge la información de transparencia pública del proyecto.
 
 | Campo | Valor |
 |---|---|
