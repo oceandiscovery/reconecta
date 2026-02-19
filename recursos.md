@@ -5,7 +5,7 @@ permalink: /recursos/
 ---
 
 # Recursos
-## Descargas y materiales (proximamente disponibles)
+## Descargas y materiales (disponibles proximamente)
 - Identidad visual y logotipos oficiales.
 - Cartelería (mínimo A3) y plantillas de comunicación.
 - Protocolos y materiales de divulgación (nota de prensa, vídeo subtitulado, etc.).
