@@ -1,3 +1,7 @@
 theme: jekyll-theme-cayman
 title: RECONECTA
 description: Reservas conectadas para una gestión pesquera resiliente en Mallorca
+
+# Textos oficiales (pie de página)
+pleamar_ack: "Este proyecto se desarrolla con la colaboración de la Fundación Biodiversidad del Ministerio para la Transición Ecológica y el Reto Demográfico, a través del Programa Pleamar, y se cofinancia por la Unión Europea por el FEMPA (Fondo Europeo Marítimo, de Pesca y de Acuicultura)."
+pleamar_disclaimer: "Las opiniones y documentación aportadas en esta publicación son de exclusiva responsabilidad de la persona o personas que ostenten su autoría y no reflejan necesariamente los puntos de vista de las entidades que apoyan económicamente el proyecto."
