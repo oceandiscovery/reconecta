@@ -7,7 +7,7 @@ permalink: /transparencia/
 # Transparencia
 La siguiente tabla recoge la información de transparencia pública del proyecto.
 
-| Campo | Valor |
+| Descripción | Valor |
 |---|---|
 | Entidad beneficiaria | [IMEDEA (CSIC-UIB)](https://imedea.uib-csic.es) |
 | Resolución de concesión | [RC 23/01/2026 18:41](https://www.programapleamar.es/sites/default/files/resolucion-concesion.-pleamar-2025.pdf) |
