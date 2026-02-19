@@ -6,4 +6,5 @@ layout: default
 
 <hr>
 
-{% include financiacion.md %}
+{% capture financiacion %}{% include financiacion.md %}{% endcapture %}
+{{ financiacion | markdownify }}
