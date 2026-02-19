@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Inicio
+title: RECONECTA
 ---
 
 # RECONECTA
@@ -13,13 +13,3 @@ RECONECTA propone convertir los Espacios Marinos Protegidos y Reservas Marinas d
   <a class="reconecta-btn reconecta-btn--secondary" href="{{ site.baseurl }}/noticias/">Noticias</a>
   <a class="reconecta-btn reconecta-btn--secondary" href="https://reconecta.shinyapps.io/visor/" target="_blank" rel="noopener">Visor/Atlas</a>
 </div>
-
-## Secciones
-- [Proyecto](/reconecta/proyecto)
-- [Metodología](/reconecta/metodologia)
-- [Resultados](/reconecta/resultados)
-- [Equipo](/reconecta/equipo)
-- [Noticias](/reconecta/noticias)
-- [Transparencia](/reconecta/transparencia)
-- [Contacto](/reconecta/contacto)
-- [Visor/Atlas](/reconecta/visor)
