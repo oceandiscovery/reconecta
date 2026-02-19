@@ -11,6 +11,14 @@
   flex-wrap: wrap;
 }
 
+/* Botones del header (Cayman) un poco más pequeños */
+.page-header .btn{
+  padding: 0.45rem 0.75rem;
+  font-size: 0.85rem;
+  margin: 0.25rem 0.15rem;
+  border-radius: 0.45rem;
+}
+
 .reconecta-btn{
   display: inline-block;
   padding: .55rem .9rem;
