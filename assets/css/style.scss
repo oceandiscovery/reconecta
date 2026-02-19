@@ -39,8 +39,10 @@
 }
 
 .reconecta-logos-header img{
-  width: 80%;
+  display: inline-block;
+  max-height: 70px;   /* prueba 60–80 */
+  width: auto;
+  max-width: 92%;
   height: auto;
-  display: block;
-  border-radius: 8px; /* opcional */
+  border-radius: 10px; /* opcional */
 }
