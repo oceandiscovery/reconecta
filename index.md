@@ -20,12 +20,9 @@ RECONECTA propone convertir los Espacios Marinos Protegidos y Reservas Marinas d
 - [Resultados](/reconecta/resultados)
 - [Equipo](/reconecta/equipo)
 - [Noticias](/reconecta/noticias)
-- [Visor/Atlas](/reconecta/visor)
 - [Transparencia](/reconecta/transparencia)
 - [Contacto](/reconecta/contacto)
-- [Recursos](/reconecta/recursos)
+- [Visor/Atlas](/reconecta/visor)
 
 ## Acceso rápido al Visor/Atlas
 https://reconecta.shinyapps.io/visor/
-
----
