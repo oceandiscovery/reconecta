@@ -49,14 +49,17 @@
 }
 
 .reconecta-funding{
-  font-size: 0.85rem;   /* ajusta: 0.8–0.9 */
+  font-size: 0.85rem;   /* prueba 0.80–0.90 */
   line-height: 1.35;
-}
-
-.main-content .reconecta-funding{
-  color: #606c71;       /* color típico Cayman en contenido */
+  color: #606c71;       /* texto Cayman en contenido */
 }
 
 .reconecta-funding p{
-  margin: 0.45rem 0;
+  margin: .45rem 0;
+}
+
+.reconecta-funding img{
+  max-width: 520px;
+  width: 100%;
+  height: auto;
 }
