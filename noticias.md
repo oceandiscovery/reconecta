@@ -5,13 +5,8 @@ permalink: /noticias/
 ---
 
 # Noticias
-Publica aquí hitos y actualizaciones: campañas de campo, talleres, entregables y materiales divulgativos.
+Aquí se publicaran hitos y actualizaciones: campañas de campo, talleres, entregables y materiales divulgativos.
 
-## Ejemplos de entradas (estructura sugerida)
-### Arranque del proyecto
-- Fecha:
-- Resumen:
-- Enlaces (si aplica):
-
-### Actualizaciones del Visor/Atlas
-Enlace directo: https://reconecta.shinyapps.io/visor/
+## Arranque del proyecto
+- Fecha: 27 de enero de 2026
+- Resumen: Se celebró una reunión informativa con el equipo de investigación y el equipo de trabajo el día 30 de enero de 2026 a las 12:00 en el IMEDEA (UIB-CSIC) para coordinar las tareas necesarias para poner el proyecto en marcha administrativa, económica y logisticamente.
