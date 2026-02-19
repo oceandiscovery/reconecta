@@ -10,11 +10,11 @@ RECONECTA está coordinado científicamente por **IMEDEA (CSIC–UIB)** y se des
 ## Entidades colaboradoras (cartas de apoyo)
 A continuación se listan las entidades que han respaldado el proyecto mediante cartas de apoyo/colaboración
 
-- [**Federació Balear de Confraries de Pescadors**](https://www.pescadorsdebalears.com/)  
-- **Asociación Mallorquina de Pesca Marítima Recreativa Responsable (AMPRR)**: https://www.amprr.es/  [oai_citation:1‡amprr.es](https://www.amprr.es/?utm_source=chatgpt.com)  
-- **Cofradía de Pescadores de Pollença** (referencia en la web de la Federació): https://www.pescadorsdebalears.com/confraries-pescadors.html  [oai_citation:2‡pescadorsdebalears.com](https://www.pescadorsdebalears.com/confraries-pescadors.html?utm_source=chatgpt.com)  
-- **Cofradía de Pescadores de Mahón** (presencia pública): https://www.facebook.com/Cofrad%C3%ADa-de-Pescadores-de-Mah%C3%B3n-312969585462584/  [oai_citation:3‡Facebook](https://www.facebook.com/Cofrad%C3%ADa-de-Pescadores-de-Mah%C3%B3n-312969585462584/?utm_source=chatgpt.com)  
-- **Direcció General de Pesca (Govern de les Illes Balears)**: https://www.caib.es/webgoib/w/direccio-general-pesca  [oai_citation:4‡Web GOIB](https://www.caib.es/webgoib/w/direccio-general-pesca?utm_source=chatgpt.com)  
+- [**Federació Balear de Confraries de Pescadors**] (www.pescadorsdebalears.com)  
+- [**Asociación Mallorquina de Pesca Marítima Recreativa Responsable (AMPRR)**] (www.amprr.es/)  
+- [**Cofradía de Pescadores de Pollença**] (www.pescadorsdebalears.com/confraries-pescadors.html)  
+- [**Cofradía de Pescadores de Mahón**] (https://www.facebook.com/Cofrad%C3%ADa-de-Pescadores-de-Mah%C3%B3n-312969585462584/)  
+- [**Direcció General de Pesca (Govern de les Illes Balears)**] (https://www.caib.es/webgoib/w/direccio-general-pesca)  
 
 ## Equipo de investigación
 Listado del equipo con información básica, enlace institucional y ORCID (cuando aplica).
