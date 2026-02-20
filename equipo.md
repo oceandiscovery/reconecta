@@ -28,18 +28,18 @@ Listado del equipo con información básica, enlace institucional y ORCID (cuand
 ### Investigadores/as (IMEDEA, CSIC–UIB)
 - **Silvia de Juan Mohan**  
   Sostenibilidad marina, redes socioecológicas y gobernanza participativa.  
-  [Perfil institucional en IMEDEA](https://imedea.uib-csic.es/en/the-institute/staff/?staff_id=2561)
-  [ORCID](https://orcid.org/0000-0002-8891-8371)
+  [Perfil institucional en IMEDEA](https://imedea.uib-csic.es/en/the-institute/staff/?staff_id=2561)  
+  [ORCID](https://orcid.org/0000-0002-8891-8371)  
 
 - **Ignacio A. Catalán**  
   Ecología y oceanografía pesquera; conectividad y análisis bioestadístico.  
-  [Perfil institucional en IMEDEA](https://imedea.uib-csic.es/en/the-institute/staff/?staff_id=652)
-  [ORCID](https://orcid.org/0000-0002-6496-9182)
+  [Perfil institucional en IMEDEA](https://imedea.uib-csic.es/en/the-institute/staff/?staff_id=652)  
+  [ORCID](https://orcid.org/0000-0002-6496-9182)  
 
 - **Hilmar Hinz**  
   Ecología de peces demersales, hábitats bentónicos e impactos de artes de pesca.  
-  [Perfil institucional en IMEDEA](https://imedea.uib-csic.es/en/the-institute/staff/?staff_id=2473) 
-  [ORCID](https://orcid.org/0000-0003-4909-0089)
+  [Perfil institucional en IMEDEA](https://imedea.uib-csic.es/en/the-institute/staff/?staff_id=2473)  
+  [ORCID](https://orcid.org/0000-0003-4909-0089)  
 
 - **Bàrbara Barceló-Llull**  
   Oceanografía física; apoyo a la modelización hidrodinámica y acoplamiento biofísico.  
