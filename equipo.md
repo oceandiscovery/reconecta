@@ -33,7 +33,7 @@ Listado del equipo con información básica, enlace institucional y ORCID (cuand
 
 - **Ignacio A. Catalán**  
   Ecología y oceanografía pesquera; conectividad y análisis bioestadístico.  
-  [Perfil institucional en IMEDEA]()
+  [Perfil institucional en IMEDEA](https://imedea.uib-csic.es/en/the-institute/staff/?staff_id=652)
   [ORCID](https://orcid.org/0000-0002-6496-9182)
 
 - **Hilmar Hinz**  
