@@ -18,9 +18,7 @@ Proponer medidas para transformar los EMP (incluidas RMIP) en una red de reserva
 El trabajo se centra en **Mallorca**, con intención de extender el enfoque a otras islas en proyectos futuros, comenzando por el **sur de Menorca**.
 
 ## Especies focales
-El proyecto trabaja con un conjunto de especies relevantes para conservación, buceo recreativo y sostenibilidad pesquera, entre ellas:
-- **Tortuga boba** (*Caretta caretta*) y **delfín común** (*Delphinus delphis*).   
-- Especies de interés pesquero y ecosistémico: **mero** (*Epinephelus marginatus*), **sargo** (*Diplodus sargus*), **dentón** (*Dentex dentex*), **rayas** (*Raja* spp.), **raor** (*Xyrichtys novacula*) y **serviola** (*Seriola dumerili*), entre otras.
+El proyecto trabaja con un conjunto de especies relevantes para conservación, buceo recreativo y sostenibilidad pesquera, entre ellas: **mero** (*Epinephelus marginatus*), **sargo** (*Diplodus sargus*), **dentón** (*Dentex dentex*), **rayas** (*Raja* spp.), **raor** (*Xyrichtys novacula*) y **serviola** (*Seriola dumerili*), entre otras.
 
 ## Qué hacemos
 1. **Observación**: ADN ambiental (eDNA) alrededor de la Isla de Mallorca y Canal de Menorca, exploración con vehículos submarinos operados remotamente (ROV) y apoyo de buceo recreativo para obtener evidencia biológica y visual.   
