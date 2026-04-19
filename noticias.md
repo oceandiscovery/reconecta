@@ -9,15 +9,16 @@ Aquí se publicaran hitos y actualizaciones: campañas de campo, talleres, entre
 
 ## Reunión con representantes del sector pesquero profesional
 - Fecha: 13 de abril de 2026
-- Resumen: La reunión tuvo por objeto presentar el proyecto RECONECTA al sector pesquero profesional, exponer su enfoque general, las actividades previstas y abrir un espacio de intercambio para favorecer la participación del sector en las fases iniciales del proyecto. Asistieron a la reunión:
-  - Miguel Hernández Rosas, gerente del Grupo de Acción Local de Pesca (Mallorca).
-  - Domingo Bonnín, Patró Major de la Confraria de Pescadors de Palma y presidente de la Federació Balear de Confraries de Pescadors.
-  - Ángel López Navarrete, secretario de la Confraria de Pescadors de Palma.
-  - Carlos Ros Vicents, secretario de la Federació Balear de Confraries de Pescadors.
-  - Andrés Ospina-Alvarez, IMEDEA-CSIC-UIB.
-  - Silvia de Juan, IMEDEA-CSIC-UIB.
-  - Juan José Martín Estarellas, IMEDEA-CSIC-UIB.
-  - Sara Muñiz Quintana, IMEDEA-CSIC-UIB.
+- Resumen: La reunión tuvo por objeto presentar el proyecto RECONECTA al sector pesquero profesional, exponer su enfoque general, las actividades previstas y abrir un espacio de intercambio para favorecer la participación del sector en las fases iniciales del proyecto.
+Asistieron a la reunión:
+- Miguel Hernández Rosas, gerente del Grupo de Acción Local de Pesca (Mallorca).
+- Domingo Bonnín, Patró Major de la Confraria de Pescadors de Palma y presidente de la Federació Balear de Confraries de Pescadors.
+- Ángel López Navarrete, secretario de la Confraria de Pescadors de Palma.
+- Carlos Ros Vicents, secretario de la Federació Balear de Confraries de Pescadors.
+- Andrés Ospina-Alvarez, IMEDEA-CSIC-UIB.
+- Silvia de Juan, IMEDEA-CSIC-UIB.
+- Juan José Martín Estarellas, IMEDEA-CSIC-UIB.
+- Sara Muñiz Quintana, IMEDEA-CSIC-UIB.
 
 ## Nota de prensa: RECONECTA arranca en Mallorca y lanza su web para reforzar la conectividad entre reservas marinas y gestión pesquera
 - Fecha: 24 de febrero de 2026
