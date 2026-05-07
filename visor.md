@@ -4,21 +4,15 @@ title: Visor/Atlas
 permalink: /visor/
 ---
 
-# Visor/Atlas
-Visor/atlas interactivo del proyecto (ShinyApps).
+# Visor / Atlas interactivo de campañas
 
-<p>
-  <a class="btn" href="https://reconecta.shinyapps.io/visor/" target="_blank" rel="noopener">Abrir Visor/Atlas</a>
-</p>
+Mapa interactivo de los muestreos del proyecto RECONECTA en las Islas Baleares:
+censos visual/vídeo, muestras de eDNA e ictioplancton (anchoa).
 
-Si el visor no carga incrustado, ábrelo en una pestaña nueva:
-https://reconecta.shinyapps.io/visor/
-
-## Incrustación (iframe)
-> Nota: algunos navegadores o políticas de ShinyApps pueden limitar la incrustación. El enlace directo siempre debe funcionar.
+Haz clic en cualquier marcador para ver los detalles del punto.
 
 <iframe
-  src="https://reconecta.shinyapps.io/visor/"
-  style="width: 100%; height: 78vh; border: 1px solid #e5e7eb; border-radius: 12px;"
+  src="{{ '/assets/mapa_campanas.html' | relative_url }}"
+  style="width: 100%; height: 82vh; border: none; border-radius: 8px; margin-top: 1rem;"
   loading="lazy"
-  title="RECONECTA · Visor/Atlas"></iframe>
+  title="RECONECTA · Visor/Atlas interactivo de campañas de muestreo"></iframe>
