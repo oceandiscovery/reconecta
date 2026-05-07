@@ -7,7 +7,7 @@ permalink: /visor/
 # Visor / Atlas interactivo de campañas
 
 Mapa interactivo de los muestreos del proyecto RECONECTA en las Islas Baleares:
-censos visual/vídeo, muestras de eDNA e ictioplancton (anchoa).
+1) censos visual/vídeo, 2) muestras de ADN ambiental, y 3) ictioplancton (colaboración con el proyecto [Rhodomed](https://rhodomed.wordpress.com/)).
 
 Haz clic en cualquier marcador para ver los detalles del punto.
 
