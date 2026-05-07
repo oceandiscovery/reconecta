@@ -39,5 +39,5 @@ Las reservas funcionan mejor como **red** cuando los flujos de individuos conect
   <a class="reconecta-btn" href="{{ site.baseurl }}/transparencia/">Datos básicos del proyecto</a>
   <a class="reconecta-btn" href="{{ site.baseurl }}/noticias/">Hitos y actualizaciones</a>
   <a class="reconecta-btn" href="{{ site.baseurl }}/recursos/">Materiales y descargas</a>
-  <a class="reconecta-btn" href="https://reconecta.shinyapps.io/visor/" target="_blank" rel="noopener">Visor/Atlas</a>
+  <a class="reconecta-btn" href="{{ site.baseurl }}/visor/">Visor/Atlas</a>
 </div>
