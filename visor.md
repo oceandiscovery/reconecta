@@ -13,6 +13,6 @@ Haz clic en cualquier marcador para ver los detalles del punto.
 
 <iframe
   src="{{ '/assets/mapa_campanas.html' | relative_url }}"
-  style="width: 100%; height: 82vh; border: none; border-radius: 8px; margin-top: 1rem;"
+  style="width: 100%; height: 88vh; border: none; border-radius: 8px; margin-top: 1rem;"
   loading="lazy"
   title="RECONECTA · Visor/Atlas interactivo de campañas de muestreo"></iframe>
