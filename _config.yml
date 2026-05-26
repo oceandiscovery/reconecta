@@ -1,4 +1,5 @@
 theme: jekyll-theme-cayman
+permalink: /noticias/:year/:month/:day/:title/
 title: RECONECTA
 description: Reservas conectadas para una gestión pesquera resiliente en Mallorca
 

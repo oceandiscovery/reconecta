@@ -56,6 +56,42 @@
   border-radius: 10px; /* opcional */
 }
 
+/* ── Noticias: índice de posts ───────────────────────────── */
+.reconecta-noticia-card{
+  border-left: 4px solid #159957;
+  padding: 1rem 1rem 1rem 1.25rem;
+  margin-bottom: 2rem;
+  background: #f8fdf9;
+  border-radius: 0 .5rem .5rem 0;
+}
+
+.reconecta-noticia-title{
+  margin: 0 0 .2rem 0;
+  font-size: 1.15rem;
+}
+
+.reconecta-noticia-title a{
+  color: #155799;
+  text-decoration: none;
+}
+
+.reconecta-noticia-title a:hover{
+  text-decoration: underline;
+}
+
+.reconecta-noticia-excerpt{
+  margin: .5rem 0 .75rem 0;
+  color: #3a4a55;
+}
+
+/* ── Noticias: página de post individual ─────────────────── */
+.reconecta-post-date{
+  font-size: 0.88rem;
+  color: #606c71;
+  margin-bottom: 1.25rem;
+}
+
+/* ── Financiación ────────────────────────────────────────── */
 .reconecta-funding{
   font-size: 0.70rem;   /* prueba 0.70–0.90 */
   line-height: 1.35;
