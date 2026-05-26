@@ -58,7 +58,7 @@ Listado del equipo con información básica, enlace institucional y ORCID (cuand
   [ORCID](https://orcid.org/0009-0004-8069-5160)
   
 - **Jules Jean Max Degruson**  
-  Apoyo técnico en campañas de campo y laboratorio. Análisis e indicadores de biodiversiad.  
+  Apoyo técnico en campañas de campo y laboratorio. Análisis e indicadores de biodiversidad.  
   [Perfil institucional en IMEDEA](https://imedea.uib-csic.es/el-instituto/personal/?staff_id=3218)
 
 
