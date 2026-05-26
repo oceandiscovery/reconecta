@@ -56,6 +56,16 @@ Listado del equipo con información básica, enlace institucional y ORCID (cuand
   Apoyo técnico en campañas de campo, laboratorio y administración del proyecto.  
   [Perfil institucional en IMEDEA](https://imedea.uib-csic.es/el-instituto/personal/?staff_id=3040)  
   [ORCID](https://orcid.org/0009-0004-8069-5160)
+  
+- **Jules Jean Max Degruson**  
+  Apoyo técnico en campañas de campo y laboratorio. Análisis e indicadores de biodiversiad.  
+  [Perfil institucional en IMEDEA](https://imedea.uib-csic.es/el-instituto/personal/?staff_id=3218)
+
+
+- **Juán José Martín Estarellas**  
+  Apoyo técnico en campañas de campo y SIG. Articulación con el sector pesquero y dinamización de actividades participativas.  
+  [Perfil institucional en IMEDEA](https://imedea.uib-csic.es/en/the-institute/staff/?staff_id=3026)  
+  [ORCID](https://orcid.org/0009-0006-9780-3986)
 
 ### Colaboradores/as expertos/as (ICM-CSIC)
 - **Andrea Cabrito Rubau**  
