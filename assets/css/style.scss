@@ -79,6 +79,14 @@
   text-decoration: underline;
 }
 
+.reconecta-noticia-img{
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  border-radius: .375rem;
+  margin: .75rem 0;
+}
+
 .reconecta-noticia-excerpt{
   margin: .5rem 0 .75rem 0;
   color: #3a4a55;
