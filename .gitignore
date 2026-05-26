@@ -1,0 +1,13 @@
+# ── Logs and runtime artefacts ────────────────────────────────────────────────
+*.log
+__pycache__/
+*.pyc
+*.pyo
+
+# ── OS and editor noise ───────────────────────────────────────────────────────
+.DS_Store
+~$*
+
+# ── Private / local-only files ────────────────────────────────────────────────
+.claude/
+

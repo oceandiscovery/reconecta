@@ -51,6 +51,12 @@ Listado del equipo con información básica, enlace institucional y ORCID (cuand
   [Perfil institucional en IMEDEA](https://imedea.uib-csic.es/en/the-institute/staff/?staff_id=2314)  
   [ORCID](https://orcid.org/0000-0002-1044-0312)
 
+### Técnicos/as (IMEDEA, CSIC–UIB)
+- **Sara Muñiz Quintana**  
+  Apoyo técnico en campañas de campo, laboratorio y administración del proyecto.  
+  [Perfil institucional en IMEDEA](https://imedea.uib-csic.es/el-instituto/personal/?staff_id=3040)  
+  [ORCID](https://orcid.org/0009-0004-8069-5160)
+
 ### Colaboradores/as expertos/as (ICM-CSIC)
 - **Andrea Cabrito Rubau**  
   Genómica ambiental y biodiversidad bentónica; apoyo en bioinformática de eDNA e indicadores de conectividad.  
