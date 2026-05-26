@@ -21,7 +21,5 @@ El protocolo de muestreo se desarrolla en cuatro fases a lo largo de la columna 
 
 Esta primera campaña marca el inicio de un plan de muestreo que cubrirá múltiples estaciones distribuidas por Mallorca, Menorca y el Parque Nacional de Cabrera, en el marco del proyecto RECONECTA.
 
-Este proyecto se desarrolla con la colaboración de la Fundación Biodiversidad del Ministerio para la Transición Ecológica y el Reto Demográfico, a través del Programa Pleamar, y se cofinancia por la Unión Europea por el FEMPA (Fondo Europeo Marítimo, de Pesca y de Acuicultura)
-
 ---
 *Proyecto RECONECTA — IMEDEA (CSIC-UIB)*
