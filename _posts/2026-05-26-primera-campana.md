@@ -4,7 +4,7 @@ title: "Arranca la primera campaña de muestreo de RECONECTA en las Islas Balear
 date: 2026-05-26
 author: Equipo RECONECTA
 categories: noticias campaña
-image: {{ site.baseurl }}/assets/img/noticias/2026-05-26-rodman.png
+image: /assets/img/noticias/2026-05-26-rodman.png
 ---
 
 El lunes 26 de mayo de 2026 comenzó la primera campaña oceanográfica del proyecto RECONECTA. El equipo partió desde Palma a bordo de la embarcación de investigación *Rodman* (IMEDEA-CSIC) rumbo a Cala Ratjada, en una travesía de siete horas que incluyó varias paradas de muestreo a lo largo de la costa suroriental y oriental de Mallorca.
