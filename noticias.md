@@ -14,7 +14,7 @@ Hitos y actualizaciones del proyecto: campañas de campo, talleres, entregables 
   </h2>
   <p class="reconecta-post-date">{{ post.fecha }}</p>
   {% if post.image %}
-  <img src="{{ post.image }}" alt="{{ post.title }}" class="reconecta-noticia-img">
+  <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="reconecta-noticia-img">
   {% endif %}
   <div class="reconecta-noticia-excerpt">{{ post.excerpt }}</div>
   {% if post.content.size > post.excerpt.size %}
