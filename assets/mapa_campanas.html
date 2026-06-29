@@ -3,187 +3,274 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>RECONECTA — Mapa interactivo de campañas</title>
+<title>RECONECTA — Atlas de campañas de muestreo marino</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <style>
 :root{
-  --deep-navy:#0a2d4a;
-  --navy:#0d3b5c;
-  --ocean:#0f5e87;
-  --teal:#1c8aa3;
-  --mist:#eaf3f7;
-  --panel-bg:#ffffff;
-  --ink:#102a3a;
-  --muted:#5b7384;
-  --border:#dde7ec;
-  --border-soft:#eef3f6;
-  --shadow:0 4px 18px rgba(10,45,74,.10);
+  /* ---- papel / tinta ---- */
+  --paper:#faf9f5;
+  --paper-deep:#f3f1ea;
+  --ink:#1a1a16;
+  --ink-soft:#4a4a42;
+  --ink-faint:#8a8878;
+  --rule:#d8d5c8;
+  --rule-strong:#1a1a16;
+  --accent:#1d4e6b;
+  --accent-soft:#e8eef0;
+
+  /* ---- categorías (paleta de ilustración científica) ---- */
+  --c-visual:#2f5f8a;
+  --c-edna:#3d7a4f;
+  --c-ictio:#a13a5c;
+
+  --serif:'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --sans:'Inter', -apple-system, 'Segoe UI', sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{
-  font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
-  display:flex;flex-direction:column;height:100vh;overflow:hidden;color:var(--ink);
-  background:var(--mist);
+  font-family:var(--sans);
+  display:flex;flex-direction:column;height:100vh;overflow:hidden;
+  color:var(--ink);background:var(--paper);
+  -webkit-font-smoothing:antialiased;
 }
 
-/* ---------- HEADER ---------- */
-header{
-  background:linear-gradient(120deg,var(--deep-navy) 0%,var(--navy) 55%,var(--ocean) 100%);
-  color:#fff;padding:14px 24px;display:flex;align-items:center;gap:14px;
-  box-shadow:0 2px 14px rgba(0,0,0,.25);z-index:500;flex-shrink:0;
-  border-bottom:3px solid var(--teal);
+/* ================= MASTHEAD ================= */
+.masthead{
+  flex-shrink:0;background:var(--paper);
+  border-bottom:1px solid var(--rule-strong);
+  padding:0 28px;
 }
-.brand-mark{
-  width:38px;height:38px;border-radius:10px;flex-shrink:0;
-  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);
-  display:flex;align-items:center;justify-content:center;
-  font-size:15px;font-weight:800;letter-spacing:-.5px;color:#fff;
+.masthead-top{
+  display:flex;align-items:baseline;justify-content:space-between;
+  padding:18px 0 14px;border-bottom:1px solid var(--rule);
+  flex-wrap:wrap;gap:10px;
 }
-header h1{font-size:18px;font-weight:700;letter-spacing:.2px;line-height:1.25}
-header p{font-size:11.5px;opacity:.82;margin-top:2px;letter-spacing:.15px}
+.masthead-kicker{
+  font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:2px;
+  text-transform:uppercase;color:var(--accent);
+}
+.masthead-date{
+  font-family:var(--sans);font-size:10.5px;color:var(--ink-faint);letter-spacing:.3px;
+}
+.masthead-main{
+  display:flex;align-items:baseline;justify-content:space-between;
+  padding:14px 0 16px;flex-wrap:wrap;gap:8px 24px;
+}
+.masthead-title{
+  font-family:var(--serif);font-size:30px;font-weight:600;letter-spacing:-.2px;
+  line-height:1.05;
+}
+.masthead-title em{font-style:italic;font-weight:500;color:var(--accent)}
+.masthead-sub{
+  font-family:var(--serif);font-style:italic;font-size:14px;color:var(--ink-soft);
+  max-width:480px;line-height:1.4;
+}
 
-/* ---------- LAYOUT ---------- */
+/* ================= LAYOUT ================= */
 .main{display:flex;flex:1;overflow:hidden;min-height:0}
+
 .sidebar{
-  width:312px;background:var(--panel-bg);border-right:1px solid var(--border);
-  display:flex;flex-direction:column;overflow-y:auto;flex-shrink:0;
+  width:328px;flex-shrink:0;border-right:1px solid var(--rule-strong);
+  display:flex;flex-direction:column;overflow-y:auto;background:var(--paper);
 }
-.sidebar::-webkit-scrollbar{width:7px}
-.sidebar::-webkit-scrollbar-thumb{background:#cdd9df;border-radius:4px}
+.sidebar::-webkit-scrollbar{width:6px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--rule)}
 
-.sec{padding:16px 18px;border-bottom:1px solid var(--border-soft)}
-.sec h3{
-  font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;
-  color:var(--muted);margin-bottom:11px;
+.panel{padding:20px 24px;border-bottom:1px solid var(--rule);flex:none}
+.panel-label{
+  font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:1.6px;
+  text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px;
+  display:flex;align-items:center;gap:8px;
 }
+.panel-label::after{content:'';flex:1;height:1px;background:var(--rule)}
 
-/* ---------- SUMMARY STATS ---------- */
-.stats{display:grid;gap:7px}
-.stat-row{
-  display:flex;align-items:center;gap:10px;background:var(--mist);
-  border:1px solid var(--border);border-radius:9px;padding:9px 11px;
+/* ---- resumen tipo tabla de figuras ---- */
+.fig-table{display:flex;flex-direction:column}
+.fig-row{
+  display:flex;align-items:baseline;gap:10px;padding:9px 0;
+  border-bottom:1px dotted var(--rule);font-family:var(--sans);
 }
-.stat-row .swatch{width:13px;height:13px;border-radius:50%;flex-shrink:0;box-shadow:0 0 0 2px rgba(255,255,255,.6) inset}
-.stat-row.is-square .swatch{border-radius:3px}
-.stat-row .label{font-size:12px;color:var(--ink);font-weight:600;flex:1}
-.stat-row .value{font-size:16px;font-weight:800;color:var(--navy)}
+.fig-row:last-child{border-bottom:none}
+.fig-mark{flex-shrink:0;width:14px;height:14px;display:flex;align-items:center;justify-content:center}
+.fig-name{flex:1;font-size:13px;color:var(--ink);font-weight:500}
+.fig-count{
+  font-family:var(--serif);font-size:17px;font-weight:600;color:var(--ink);
+  min-width:24px;text-align:right;
+}
+.fig-total{
+  display:flex;justify-content:space-between;align-items:baseline;
+  margin-top:12px;padding-top:12px;border-top:1px solid var(--rule-strong);
+  font-family:var(--sans);
+}
+.fig-total .lbl{font-size:11px;letter-spacing:.5px;text-transform:uppercase;color:var(--ink-faint);font-weight:600}
+.fig-total .num{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--ink)}
 
-/* ---------- FILTER BUTTONS ---------- */
-.filters{display:flex;flex-direction:column;gap:6px}
+/* ---- filtros: como notas al margen, no botones SaaS ---- */
+.filters{display:flex;flex-direction:column;gap:2px}
 .fbtn{
-  display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:8px;
-  border:1.5px solid var(--border);cursor:pointer;background:var(--panel-bg);
-  font-size:12.5px;font-weight:600;color:var(--ink);transition:all .14s ease;
-  text-align:left;width:100%;font-family:inherit;
+  display:flex;align-items:center;gap:10px;padding:9px 2px;
+  border:none;border-bottom:1px solid transparent;cursor:pointer;background:none;
+  font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink);
+  text-align:left;width:100%;transition:opacity .15s ease;
 }
-.fbtn:hover{border-color:var(--teal);box-shadow:var(--shadow)}
-.fbtn.on{border-color:rgba(15,94,135,.28);background:#fbfdfe}
-.fbtn.off{opacity:.42}
-.fbtn .cnt{margin-left:auto;font-size:10.5px;color:var(--muted);font-weight:600;background:var(--mist);padding:2px 7px;border-radius:10px}
-.swc{width:13px;height:13px;border-radius:50%;flex-shrink:0;border:1.5px solid rgba(0,0,0,.08)}
-.swsq{width:13px;height:13px;border-radius:3px;flex-shrink:0;border:1.5px solid rgba(0,0,0,.08)}
+.fbtn .fig-mark{transition:transform .15s ease}
+.fbtn:hover .fig-mark{transform:scale(1.2)}
+.fbtn.off{opacity:.35}
+.fbtn .lbl{flex:1}
+.fbtn .cnt{font-family:var(--serif);font-style:italic;font-size:12.5px;color:var(--ink-faint)}
 
-/* ---------- STATUS SELECT ---------- */
-.selectrow{display:flex;flex-direction:column;gap:7px}
-.selectrow label{font-size:12px;font-weight:700;color:var(--ink)}
+.selectrow label{
+  display:block;font-family:var(--sans);font-size:11px;font-weight:600;
+  color:var(--ink-soft);margin-bottom:8px;letter-spacing:.2px;
+}
 .selectrow select{
-  padding:9px 10px;border:1.5px solid var(--border);border-radius:8px;
-  background:var(--panel-bg);font-size:12.5px;color:var(--ink);font-family:inherit;
-  cursor:pointer;
+  width:100%;padding:9px 10px;border:1px solid var(--rule-strong);
+  background:var(--paper) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"><path d="M0 0L5 6L10 0" fill="%231a1a16"/></svg>') no-repeat right 12px center;
+  font-family:var(--sans);font-size:13px;color:var(--ink);cursor:pointer;
+  border-radius:0;appearance:none;-webkit-appearance:none;
 }
-.selectrow select:focus{outline:2px solid var(--teal);outline-offset:1px}
+.selectrow select:focus{outline:1.5px solid var(--accent);outline-offset:1px}
 
-/* ---------- LEGEND ---------- */
-.legend-row{display:flex;align-items:center;gap:9px;font-size:12px;margin-bottom:7px;color:var(--ink)}
-.legend-row:last-child{margin-bottom:0}
-.legend-row .swc,.legend-row .swsq{width:13px;height:13px}
+/* ---- ficha de estación: como una entrada de catálogo ---- */
+.station-wrap{padding:20px 24px;min-height:120px;flex:none}
+.station-empty{padding:8px 0 0}
+.station-empty p{
+  font-family:var(--serif);font-style:italic;font-size:13.5px;line-height:1.6;
+  color:var(--ink-faint);
+}
+.scard{display:none}
+.scard.show{display:block;animation:fadein .2s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(2px)}to{opacity:1;transform:translateY(0)}}
+.scard-eyebrow{
+  display:flex;align-items:center;gap:8px;margin-bottom:6px;
+  font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:1.2px;
+  text-transform:uppercase;
+}
+.scard-name{
+  font-family:var(--serif);font-size:21px;font-weight:600;line-height:1.15;
+  margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--rule-strong);
+}
+.sdrow{
+  display:flex;justify-content:space-between;gap:10px;padding:7px 0;
+  border-bottom:1px dotted var(--rule);font-family:var(--sans);font-size:12.5px;
+}
+.sdrow:last-child{border-bottom:none}
+.sdrow .k{color:var(--ink-faint)}
+.sdrow .v{font-weight:600;text-align:right;color:var(--ink)}
+.sdrow .v.pending{color:#9a6429}
+.sdrow .v.done{color:#3d7a4f}
 
-/* ---------- INFO PANEL ---------- */
-.info-wrap{flex:1;padding:16px 18px;background:var(--mist);min-height:140px}
-.info-empty{text-align:center;padding:26px 6px;color:var(--muted)}
-.info-empty svg{width:30px;height:30px;margin-bottom:9px;opacity:.55}
-.info-empty p{font-size:11.5px;line-height:1.5}
-.icard{display:none;background:var(--panel-bg);border:1px solid var(--border);border-radius:11px;padding:14px;box-shadow:var(--shadow)}
-.icard.show{display:block;animation:fadein .18s ease}
-@keyframes fadein{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
-.icard h4{font-size:14px;font-weight:800;color:var(--navy);padding-bottom:8px;margin-bottom:8px;border-bottom:2px solid var(--border-soft)}
-.badge{display:inline-block;padding:3px 10px;border-radius:11px;font-size:10.5px;font-weight:700;color:#fff;margin-bottom:10px;letter-spacing:.2px}
-.irow{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:12px;padding:6px 0;border-bottom:1px solid var(--border-soft)}
-.irow:last-child{border:none}
-.irow .k{color:var(--muted);font-weight:500}
-.irow .v{font-weight:700;text-align:right;word-break:break-word;max-width:60%;color:var(--ink)}
-.irow .v.pending{color:#b45309}
-.irow .v.done{color:#15803d}
+/* ---- pie del panel ---- */
+.sidebar-foot{
+  padding:16px 24px;font-family:var(--sans);font-size:10.5px;color:var(--ink-faint);
+  line-height:1.6;border-top:1px solid var(--rule);flex:none;
+}
+.sidebar-foot a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-soft)}
 
-/* ---------- MAP AREA ---------- */
-.map-area{position:relative;flex:1}
-#map{width:100%;height:100%;background:#cfe3ec}
+/* ================= MAPA ================= */
+.map-area{position:relative;flex:1;background:var(--paper-deep)}
+#map{width:100%;height:100%;background:#eef0e8}
+.leaflet-control-zoom{border:1px solid var(--rule-strong)!important;border-radius:0!important;box-shadow:none!important}
+.leaflet-control-zoom a{
+  background:var(--paper)!important;color:var(--ink)!important;border-radius:0!important;
+  font-family:var(--sans)!important;border-color:var(--rule)!important;
+}
+.leaflet-control-attribution{
+  background:rgba(250,249,245,.88)!important;font-family:var(--sans);font-size:10px!important;
+  border-top:1px solid var(--rule);border-left:1px solid var(--rule);
+}
+
 .reset-btn{
-  position:absolute;bottom:26px;right:14px;z-index:1000;background:var(--panel-bg);
-  border:1.5px solid var(--border);border-radius:8px;padding:9px 14px;font-size:12px;
-  font-weight:700;color:var(--navy);cursor:pointer;box-shadow:var(--shadow);
-  display:flex;align-items:center;gap:6px;font-family:inherit;
+  position:absolute;bottom:24px;right:18px;z-index:1000;
+  background:var(--paper);border:1px solid var(--rule-strong);
+  padding:9px 16px;font-family:var(--sans);font-size:11.5px;font-weight:600;
+  letter-spacing:.3px;color:var(--ink);cursor:pointer;
+  display:flex;align-items:center;gap:7px;
 }
-.reset-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
-.reset-btn svg{width:13px;height:13px}
+.reset-btn:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.reset-btn svg{width:12px;height:12px}
 
-/* ---------- MARKERS ---------- */
-.mk{
-  border-radius:50%;border:2.5px solid rgba(255,255,255,.95);
-  box-shadow:0 2px 7px rgba(10,45,74,.45);
-  display:flex;align-items:center;justify-content:center;
-  font-weight:800;color:#fff;cursor:pointer;
-  transition:transform .12s ease,box-shadow .12s ease;
-  font-family:inherit;line-height:1;
+.map-caption{
+  position:absolute;top:18px;left:64px;z-index:900;
+  background:rgba(250,249,245,.92);border:1px solid var(--rule-strong);
+  padding:8px 14px;font-family:var(--serif);font-style:italic;font-size:12px;
+  color:var(--ink-soft);max-width:280px;line-height:1.5;
 }
-.mk.sq{border-radius:5px}
-.mk:hover{transform:scale(1.22);box-shadow:0 4px 12px rgba(10,45,74,.55);z-index:1000!important}
-.mk.pending{opacity:.55;filter:saturate(.7)}
+.map-caption b{font-style:normal;font-weight:700;color:var(--ink)}
+
+/* ---- marcadores: sellos cartográficos, no burbujas ---- */
+.mk-wrap{display:flex;align-items:center;gap:4px;cursor:pointer;transform:translate(-50%,-50%)}
+.mk-shape{
+  width:16px;height:16px;flex-shrink:0;
+  filter:drop-shadow(0 1px 2px rgba(0,0,0,.35));
+  transition:transform .12s ease;
+}
+.mk-wrap:hover .mk-shape{transform:scale(1.35)}
+.mk-id{
+  font-family:var(--sans);font-size:10.5px;font-weight:700;color:var(--ink);
+  background:rgba(250,249,245,.85);padding:0 3px;line-height:1.4;
+  white-space:nowrap;
+}
+.mk-wrap.pending .mk-shape{opacity:.4}
+.mk-wrap.pending .mk-id{opacity:.55}
 
 .leaflet-tooltip.rc-tip{
-  background:var(--deep-navy);color:#fff;border:none;border-radius:7px;
-  font-size:11.5px;padding:8px 10px;box-shadow:0 4px 14px rgba(0,0,0,.3);
-  line-height:1.5;font-family:inherit;
+  background:var(--ink);color:var(--paper);border:none;border-radius:0;
+  font-family:var(--sans);font-size:11.5px;padding:9px 11px;
+  box-shadow:0 6px 18px rgba(0,0,0,.25);line-height:1.55;
 }
-.leaflet-tooltip.rc-tip::before{border-top-color:var(--deep-navy)}
-.rc-tip b{font-size:12px}
-.rc-tip .tip-sub{color:#bcd6e3}
+.leaflet-tooltip.rc-tip::before{border-top-color:var(--ink)}
+.rc-tip b{font-family:var(--serif);font-size:13px;font-weight:600}
+.rc-tip .tip-sub{color:#c7c4b4;font-style:italic}
 
-@media (max-width:760px){
-  .sidebar{width:100%;max-height:46vh;border-right:none;border-bottom:1px solid var(--border)}
+@media (max-width:780px){
+  .sidebar{width:100%;max-height:50vh;border-right:none;border-bottom:1px solid var(--rule-strong)}
   .main{flex-direction:column}
+  .masthead-title{font-size:24px}
 }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="brand-mark">RC</div>
-  <div>
-    <h1>RECONECTA — Campañas de muestreo marino</h1>
-    <p>Islas Baleares · Censos visual/vídeo · Muestras eDNA · Ictioplancton (anchoa)</p>
+<header class="masthead">
+  <div class="masthead-top">
+    <span class="masthead-kicker">Proyecto RECONECTA · IMEDEA (UIB-CSIC)</span>
+    <span class="masthead-date">Programa Pleamar · Fundación Biodiversidad</span>
+  </div>
+  <div class="masthead-main">
+    <div>
+      <div class="masthead-title">Atlas de campañas <em>de muestreo marino</em></div>
+      <div class="masthead-sub">Islas Baleares — censos visual/vídeo, muestras de eDNA de peces e ictioplancton en la red de áreas marinas protegidas.</div>
+    </div>
   </div>
 </header>
 
 <div class="main">
   <div class="sidebar">
 
-    <div class="sec">
-      <h3>Resumen de estaciones</h3>
-      <div class="stats" id="statsBox"></div>
+    <div class="panel">
+      <div class="panel-label">Estaciones registradas</div>
+      <div class="fig-table" id="statsBox"></div>
+      <div class="fig-total">
+        <span class="lbl">Total</span>
+        <span class="num" id="totalCount">—</span>
+      </div>
     </div>
 
-    <div class="sec">
-      <h3>Filtrar por tipo de muestreo</h3>
+    <div class="panel">
+      <div class="panel-label">Tipo de muestreo</div>
       <div class="filters" id="filterBox"></div>
     </div>
 
-    <div class="sec">
-      <h3>Mostrar estaciones</h3>
+    <div class="panel">
+      <div class="panel-label">Estado</div>
       <div class="selectrow">
-        <label for="stationFilter">Estado de la estación</label>
+        <label for="stationFilter">Mostrar estaciones</label>
         <select id="stationFilter" onchange="rebuildLayers()">
           <option value="Todas">Todas</option>
           <option value="Completadas">Completadas</option>
@@ -192,46 +279,48 @@ header p{font-size:11.5px;opacity:.82;margin-top:2px;letter-spacing:.15px}
       </div>
     </div>
 
-    <div class="sec">
-      <h3>Leyenda</h3>
-      <div id="legendBox"></div>
+    <div class="station-wrap">
+      <div class="panel-label" style="margin-bottom:10px">Ficha de estación</div>
+      <div class="station-empty" id="infoEmpty">
+        <p>Seleccione cualquier estación del mapa para consultar su ficha completa: coordenadas, profundidad, embarcación y estado de muestreo.</p>
+      </div>
+      <div class="scard" id="infoCard"></div>
     </div>
 
-    <div class="info-wrap">
-      <h3 style="font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);margin-bottom:11px">Detalle de la estación</h3>
-      <div class="info-empty" id="infoEmpty">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 12 2a7 7 0 0 1 7 7.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
-        <p>Haz clic en cualquier estación del mapa<br>para ver su información aquí</p>
-      </div>
-      <div class="icard" id="infoCard"></div>
+    <div class="sidebar-foot">
+      Cartografía de base © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> · estilo <a href="https://carto.com/attribution" target="_blank" rel="noopener">CARTO</a>
     </div>
 
   </div>
 
   <div class="map-area">
     <div id="map"></div>
+    <div class="map-caption" id="mapCaption">Red de estaciones de muestreo — <b>Mallorca, Menorca y Cabrera</b></div>
     <button class="reset-btn" onclick="resetView()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
-      Vista inicial
+      Vista general
     </button>
   </div>
 </div>
 
 <script>
 /* ============== DATOS (generados automáticamente desde el Excel) ============== */
-const RECORDS = [{"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "circle", "color": "#2563eb", "id": "1", "name": "Sa Dragonera", "lat": 39.571529, "lon": 2.310862, "depth": "22", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "circle", "color": "#2563eb", "id": "2", "name": "La Mola d'Andratx", "lat": 39.53608, "lon": 2.363451, "depth": "25", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "circle", "color": "#2563eb", "id": "3", "name": "Toro", "lat": 39.462801, "lon": 2.4715, "depth": "18", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "circle", "color": "#2563eb", "id": "4", "name": "Magaluf", "lat": 39.504138, "lon": 2.546156, "depth": "15", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "circle", "color": "#2563eb", "id": "5", "name": "Bendinat", "lat": 39.530987, "lon": 2.578769, "depth": "18", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "circle", "color": "#2563eb", "id": "6", "name": "Port de Valldemossa", "lat": 39.737249, "lon": 2.601823, "depth": "20", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "circle", "color": "#2563eb", "id": "7", "name": "Soller", "lat": 39.793763, "lon": 2.6717, "depth": "25", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "circle", "color": "#2563eb", "id": "8", "name": "Cabrera", "lat": 39.170287, "lon": 2.944451, "depth": "50", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "circle", "color": "#2563eb", "id": "9", "name": "Es Trenc", "lat": 39.328966, "lon": 2.949537, "depth": "12", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "circle", "color": "#2563eb", "id": "10", "name": "La Victoria", "lat": 39.868371, "lon": 3.141032, "depth": "20", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "circle", "color": "#2563eb", "id": "11", "name": "Cala Figuera", "lat": 39.324218, "lon": 3.157296, "depth": "15", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "circle", "color": "#2563eb", "id": "12", "name": "Alcanada", "lat": 39.8309, "lon": 3.162084, "depth": "12", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "circle", "color": "#2563eb", "id": "13", "name": "Pollença", "lat": 39.933876, "lon": 3.173825, "depth": "25", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "circle", "color": "#2563eb", "id": "14", "name": "Porto Petro", "lat": 39.356908, "lon": 3.220052, "depth": "15", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "circle", "color": "#2563eb", "id": "15", "name": "Colonia de St. Pere", "lat": 39.739134, "lon": 3.268177, "depth": "18", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "circle", "color": "#2563eb", "id": "16", "name": "Cala Bona", "lat": 39.58521, "lon": 3.393197, "depth": "12", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "circle", "color": "#2563eb", "id": "17", "name": "Cala Mesquida", "lat": 39.751588, "lon": 3.426942, "depth": "15", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "circle", "color": "#2563eb", "id": "18", "name": "Cala Ratjada", "lat": 39.708313, "lon": 3.475564, "depth": "20", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "circle", "color": "#2563eb", "id": "19", "name": "Fornells", "lat": 40.061439, "lon": 4.125724, "depth": "25", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "circle", "color": "#2563eb", "id": "20", "name": "Illa de l'Aire", "lat": 39.802942, "lon": 4.295534, "depth": "30", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#16a34a", "id": "1", "name": "Sa Dragonera", "lat": 39.59712, "lon": 2.345066, "depth": "20", "completed": "Si", "boat": "Rodman", "date": "2026-06-04"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#16a34a", "id": "2", "name": "Sa Mola d'Andratx", "lat": 39.529997, "lon": 2.36921, "depth": "40", "completed": "Si", "boat": "Rodman", "date": "2026-06-12"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#16a34a", "id": "3", "name": "El Toro-Malgrats", "lat": 39.461116, "lon": 2.470655, "depth": "20", "completed": "Si", "boat": "Rodman", "date": "2026-06-12"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#16a34a", "id": "4", "name": "Magaluf", "lat": 39.496026, "lon": 2.55901, "depth": "20", "completed": "Si", "boat": "Rodman", "date": "2026-06-12"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#16a34a", "id": "5", "name": "Cala Blava", "lat": 39.481423, "lon": 2.698809, "depth": "20", "completed": "Si", "boat": "Rodman", "date": "2026-06-12"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#16a34a", "id": "6", "name": "Cala Pi", "lat": 39.34344, "lon": 2.743399, "depth": "40", "completed": "Si", "boat": "Rodman", "date": "2026-05-25"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#16a34a", "id": "7", "name": "Es Trenc", "lat": 39.336618, "lon": 2.953381, "depth": "20", "completed": "No", "boat": "Rodman", "date": "NA"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#16a34a", "id": "8", "name": "Cabrera 1", "lat": 39.238113, "lon": 3.008925, "depth": "30", "completed": "Si", "boat": "Rodman", "date": "2026-06-22"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#16a34a", "id": "9", "name": "Cabrera 2", "lat": 39.130564, "lon": 2.916204, "depth": "40", "completed": "Si", "boat": "Rodman", "date": "2026-06-23"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#16a34a", "id": "10", "name": "Cabrera 3", "lat": 39.124649, "lon": 2.957594, "depth": "40", "completed": "Si", "boat": "Rodman", "date": "2026-06-24"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#16a34a", "id": "11", "name": "Cabrera 4", "lat": 39.16158, "lon": 3.001454, "depth": "50", "completed": "Si", "boat": "Rodman", "date": "2026-06-25"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#16a34a", "id": "12", "name": "Porto Petro", "lat": 39.333747, "lon": 3.22294, "depth": "40", "completed": "Si", "boat": "Rodman", "date": "2026-05-25"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#16a34a", "id": "13", "name": "Cales de Mallorca", "lat": 39.471073, "lon": 3.361494, "depth": "40", "completed": "Si", "boat": "Rodman", "date": "2026-05-25"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#16a34a", "id": "14", "name": "Can Picafort", "lat": 39.774232, "lon": 3.205511, "depth": "20", "completed": "Si", "boat": "Rodman", "date": "2026-06-02"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#16a34a", "id": "15", "name": "Coll Baix", "lat": 39.890853, "lon": 3.208853, "depth": "30", "completed": "Si", "boat": "Rodman", "date": "2026-06-02"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#16a34a", "id": "16", "name": "Formentor", "lat": 39.964358, "lon": 3.213833, "depth": "40", "completed": "Si", "boat": "Rodman", "date": "2026-06-02"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#16a34a", "id": "17", "name": "Tramuntana 1", "lat": 39.865035, "lon": 2.8425, "depth": "20", "completed": "Si", "boat": "Rodman", "date": "2026-06-02"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#16a34a", "id": "18", "name": "Tramuntana 2", "lat": 39.72134, "lon": 2.562273, "depth": "20", "completed": "Si", "boat": "Rodman", "date": "2026-06-04"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#16a34a", "id": "19", "name": "Punta Nati - Ciutadella", "lat": 40.067882, "lon": 3.820202, "depth": "25", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#16a34a", "id": "20", "name": "Fornells", "lat": 40.083919, "lon": 4.120347, "depth": "30", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#16a34a", "id": "21", "name": "Es Grau", "lat": 39.983901, "lon": 4.282789, "depth": "20", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#16a34a", "id": "22", "name": "Illa de l'Aire", "lat": 39.793486, "lon": 4.269431, "depth": "35", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#16a34a", "id": "23", "name": "Binibeca", "lat": 39.892266, "lon": 4.060635, "depth": "20", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Ictioplancton", "survey_short": "Ictioplancton", "key": "i", "shape": "square", "color": "#e91e63", "id": "1", "name": "A1", "lat": 39.791968, "lon": 3.495085, "depth": "55", "completed": "Si", "boat": "Rodman", "date": "2026-05-01"}, {"sheet": "Ictioplancton", "survey_short": "Ictioplancton", "key": "i", "shape": "square", "color": "#e91e63", "id": "2", "name": "A3", "lat": 39.720515, "lon": 3.492455, "depth": "50", "completed": "Si", "boat": "Rodman", "date": "2026-05-01"}, {"sheet": "Ictioplancton", "survey_short": "Ictioplancton", "key": "i", "shape": "square", "color": "#e91e63", "id": "3", "name": "B2", "lat": 39.825953, "lon": 3.567372, "depth": "65", "completed": "Si", "boat": "Rodman", "date": "2026-05-01"}, {"sheet": "Ictioplancton", "survey_short": "Ictioplancton", "key": "i", "shape": "square", "color": "#e91e63", "id": "4", "name": "B3", "lat": 39.727142, "lon": 3.539593, "depth": "60", "completed": "Si", "boat": "Rodman", "date": "2026-05-01"}, {"sheet": "Ictioplancton", "survey_short": "Ictioplancton", "key": "i", "shape": "square", "color": "#e91e63", "id": "5", "name": "G1", "lat": 39.7703, "lon": 3.4225, "depth": "45", "completed": "Si", "boat": "Rodman", "date": "2026-05-01"}, {"sheet": "Ictioplancton", "survey_short": "Ictioplancton", "key": "i", "shape": "square", "color": "#e91e63", "id": "6", "name": "G2", "lat": 39.7875, "lon": 3.435, "depth": "50", "completed": "Si", "boat": "Rodman", "date": "2026-05-01"}, {"sheet": "Ictioplancton", "survey_short": "Ictioplancton", "key": "i", "shape": "square", "color": "#e91e63", "id": "7", "name": "G3", "lat": 39.8114, "lon": 3.4441, "depth": "55", "completed": "Si", "boat": "Rodman", "date": "2026-05-01"}, {"sheet": "Ictioplancton", "survey_short": "Ictioplancton", "key": "i", "shape": "square", "color": "#e91e63", "id": "8", "name": "H1", "lat": 39.7874, "lon": 3.3853, "depth": "40", "completed": "Si", "boat": "Rodman", "date": "2026-05-01"}, {"sheet": "Ictioplancton", "survey_short": "Ictioplancton", "key": "i", "shape": "square", "color": "#e91e63", "id": "9", "name": "H2", "lat": 39.8075, "lon": 3.3937, "depth": "45", "completed": "Si", "boat": "Rodman", "date": "2026-05-01"}, {"sheet": "Ictioplancton", "survey_short": "Ictioplancton", "key": "i", "shape": "square", "color": "#e91e63", "id": "10", "name": "H3", "lat": 39.8245, "lon": 3.4, "depth": "50", "completed": "Si", "boat": "Rodman", "date": "2026-05-01"}];
-const SHEETS   = [{"name": "Censos Visual-Vídeo", "shape": "circle", "color": "#2563eb", "key": "v", "short": "Visual/Vídeo", "count": 20}, {"name": "Muestras eDNA", "shape": "square", "color": "#16a34a", "key": "e", "short": "eDNA", "count": 23}, {"name": "Ictioplancton", "shape": "square", "color": "#e91e63", "key": "i", "short": "Ictioplancton", "count": 10}];
+const RECORDS = [{"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "triangle", "color": "#2f5f8a", "id": "1", "name": "Sa Dragonera", "lat": 39.571529, "lon": 2.310862, "depth": "22", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "triangle", "color": "#2f5f8a", "id": "2", "name": "La Mola d'Andratx", "lat": 39.53608, "lon": 2.363451, "depth": "25", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "triangle", "color": "#2f5f8a", "id": "3", "name": "Toro", "lat": 39.462801, "lon": 2.4715, "depth": "18", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "triangle", "color": "#2f5f8a", "id": "4", "name": "Magaluf", "lat": 39.504138, "lon": 2.546156, "depth": "15", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "triangle", "color": "#2f5f8a", "id": "5", "name": "Bendinat", "lat": 39.530987, "lon": 2.578769, "depth": "18", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "triangle", "color": "#2f5f8a", "id": "6", "name": "Port de Valldemossa", "lat": 39.737249, "lon": 2.601823, "depth": "20", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "triangle", "color": "#2f5f8a", "id": "7", "name": "Soller", "lat": 39.793763, "lon": 2.6717, "depth": "25", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "triangle", "color": "#2f5f8a", "id": "8", "name": "Cabrera", "lat": 39.170287, "lon": 2.944451, "depth": "50", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "triangle", "color": "#2f5f8a", "id": "9", "name": "Es Trenc", "lat": 39.328966, "lon": 2.949537, "depth": "12", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "triangle", "color": "#2f5f8a", "id": "10", "name": "La Victoria", "lat": 39.868371, "lon": 3.141032, "depth": "20", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "triangle", "color": "#2f5f8a", "id": "11", "name": "Cala Figuera", "lat": 39.324218, "lon": 3.157296, "depth": "15", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "triangle", "color": "#2f5f8a", "id": "12", "name": "Alcanada", "lat": 39.8309, "lon": 3.162084, "depth": "12", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "triangle", "color": "#2f5f8a", "id": "13", "name": "Pollença", "lat": 39.933876, "lon": 3.173825, "depth": "25", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "triangle", "color": "#2f5f8a", "id": "14", "name": "Porto Petro", "lat": 39.356908, "lon": 3.220052, "depth": "15", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "triangle", "color": "#2f5f8a", "id": "15", "name": "Colonia de St. Pere", "lat": 39.739134, "lon": 3.268177, "depth": "18", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "triangle", "color": "#2f5f8a", "id": "16", "name": "Cala Bona", "lat": 39.58521, "lon": 3.393197, "depth": "12", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "triangle", "color": "#2f5f8a", "id": "17", "name": "Cala Mesquida", "lat": 39.751588, "lon": 3.426942, "depth": "15", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "triangle", "color": "#2f5f8a", "id": "18", "name": "Cala Ratjada", "lat": 39.708313, "lon": 3.475564, "depth": "20", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "triangle", "color": "#2f5f8a", "id": "19", "name": "Fornells", "lat": 40.061439, "lon": 4.125724, "depth": "25", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Censos Visual-Vídeo", "survey_short": "Visual/Vídeo", "key": "v", "shape": "triangle", "color": "#2f5f8a", "id": "20", "name": "Illa de l'Aire", "lat": 39.802942, "lon": 4.295534, "depth": "30", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#3d7a4f", "id": "1", "name": "Sa Dragonera", "lat": 39.59712, "lon": 2.345066, "depth": "20", "completed": "Si", "boat": "Rodman", "date": "2026-06-04"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#3d7a4f", "id": "2", "name": "Sa Mola d'Andratx", "lat": 39.529997, "lon": 2.36921, "depth": "40", "completed": "Si", "boat": "Rodman", "date": "2026-06-12"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#3d7a4f", "id": "3", "name": "El Toro-Malgrats", "lat": 39.461116, "lon": 2.470655, "depth": "20", "completed": "Si", "boat": "Rodman", "date": "2026-06-12"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#3d7a4f", "id": "4", "name": "Magaluf", "lat": 39.496026, "lon": 2.55901, "depth": "20", "completed": "Si", "boat": "Rodman", "date": "2026-06-12"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#3d7a4f", "id": "5", "name": "Cala Blava", "lat": 39.481423, "lon": 2.698809, "depth": "20", "completed": "Si", "boat": "Rodman", "date": "2026-06-12"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#3d7a4f", "id": "6", "name": "Cala Pi", "lat": 39.34344, "lon": 2.743399, "depth": "40", "completed": "Si", "boat": "Rodman", "date": "2026-05-25"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#3d7a4f", "id": "7", "name": "Es Trenc", "lat": 39.336618, "lon": 2.953381, "depth": "20", "completed": "No", "boat": "Rodman", "date": "NA"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#3d7a4f", "id": "8", "name": "Cabrera 1", "lat": 39.238113, "lon": 3.008925, "depth": "30", "completed": "Si", "boat": "Rodman", "date": "2026-06-22"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#3d7a4f", "id": "9", "name": "Cabrera 2", "lat": 39.130564, "lon": 2.916204, "depth": "40", "completed": "Si", "boat": "Rodman", "date": "2026-06-23"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#3d7a4f", "id": "10", "name": "Cabrera 3", "lat": 39.124649, "lon": 2.957594, "depth": "40", "completed": "Si", "boat": "Rodman", "date": "2026-06-24"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#3d7a4f", "id": "11", "name": "Cabrera 4", "lat": 39.16158, "lon": 3.001454, "depth": "50", "completed": "Si", "boat": "Rodman", "date": "2026-06-25"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#3d7a4f", "id": "12", "name": "Porto Petro", "lat": 39.333747, "lon": 3.22294, "depth": "40", "completed": "Si", "boat": "Rodman", "date": "2026-05-25"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#3d7a4f", "id": "13", "name": "Cales de Mallorca", "lat": 39.471073, "lon": 3.361494, "depth": "40", "completed": "Si", "boat": "Rodman", "date": "2026-05-25"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#3d7a4f", "id": "14", "name": "Can Picafort", "lat": 39.774232, "lon": 3.205511, "depth": "20", "completed": "Si", "boat": "Rodman", "date": "2026-06-02"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#3d7a4f", "id": "15", "name": "Coll Baix", "lat": 39.890853, "lon": 3.208853, "depth": "30", "completed": "Si", "boat": "Rodman", "date": "2026-06-02"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#3d7a4f", "id": "16", "name": "Formentor", "lat": 39.964358, "lon": 3.213833, "depth": "40", "completed": "Si", "boat": "Rodman", "date": "2026-06-02"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#3d7a4f", "id": "17", "name": "Tramuntana 1", "lat": 39.865035, "lon": 2.8425, "depth": "20", "completed": "Si", "boat": "Rodman", "date": "2026-06-02"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#3d7a4f", "id": "18", "name": "Tramuntana 2", "lat": 39.72134, "lon": 2.562273, "depth": "20", "completed": "Si", "boat": "Rodman", "date": "2026-06-04"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#3d7a4f", "id": "19", "name": "Punta Nati - Ciutadella", "lat": 40.067882, "lon": 3.820202, "depth": "25", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#3d7a4f", "id": "20", "name": "Fornells", "lat": 40.083919, "lon": 4.120347, "depth": "30", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#3d7a4f", "id": "21", "name": "Es Grau", "lat": 39.983901, "lon": 4.282789, "depth": "20", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#3d7a4f", "id": "22", "name": "Illa de l'Aire", "lat": 39.793486, "lon": 4.269431, "depth": "35", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Muestras eDNA", "survey_short": "eDNA", "key": "e", "shape": "square", "color": "#3d7a4f", "id": "23", "name": "Binibeca", "lat": 39.892266, "lon": 4.060635, "depth": "20", "completed": "No", "boat": "NA", "date": "NA"}, {"sheet": "Ictioplancton", "survey_short": "Ictioplancton", "key": "i", "shape": "diamond", "color": "#a13a5c", "id": "1", "name": "A1", "lat": 39.791968, "lon": 3.495085, "depth": "55", "completed": "Si", "boat": "Rodman", "date": "2026-05-01"}, {"sheet": "Ictioplancton", "survey_short": "Ictioplancton", "key": "i", "shape": "diamond", "color": "#a13a5c", "id": "2", "name": "A3", "lat": 39.720515, "lon": 3.492455, "depth": "50", "completed": "Si", "boat": "Rodman", "date": "2026-05-01"}, {"sheet": "Ictioplancton", "survey_short": "Ictioplancton", "key": "i", "shape": "diamond", "color": "#a13a5c", "id": "3", "name": "B2", "lat": 39.825953, "lon": 3.567372, "depth": "65", "completed": "Si", "boat": "Rodman", "date": "2026-05-01"}, {"sheet": "Ictioplancton", "survey_short": "Ictioplancton", "key": "i", "shape": "diamond", "color": "#a13a5c", "id": "4", "name": "B3", "lat": 39.727142, "lon": 3.539593, "depth": "60", "completed": "Si", "boat": "Rodman", "date": "2026-05-01"}, {"sheet": "Ictioplancton", "survey_short": "Ictioplancton", "key": "i", "shape": "diamond", "color": "#a13a5c", "id": "5", "name": "G1", "lat": 39.7703, "lon": 3.4225, "depth": "45", "completed": "Si", "boat": "Rodman", "date": "2026-05-01"}, {"sheet": "Ictioplancton", "survey_short": "Ictioplancton", "key": "i", "shape": "diamond", "color": "#a13a5c", "id": "6", "name": "G2", "lat": 39.7875, "lon": 3.435, "depth": "50", "completed": "Si", "boat": "Rodman", "date": "2026-05-01"}, {"sheet": "Ictioplancton", "survey_short": "Ictioplancton", "key": "i", "shape": "diamond", "color": "#a13a5c", "id": "7", "name": "G3", "lat": 39.8114, "lon": 3.4441, "depth": "55", "completed": "Si", "boat": "Rodman", "date": "2026-05-01"}, {"sheet": "Ictioplancton", "survey_short": "Ictioplancton", "key": "i", "shape": "diamond", "color": "#a13a5c", "id": "8", "name": "H1", "lat": 39.7874, "lon": 3.3853, "depth": "40", "completed": "Si", "boat": "Rodman", "date": "2026-05-01"}, {"sheet": "Ictioplancton", "survey_short": "Ictioplancton", "key": "i", "shape": "diamond", "color": "#a13a5c", "id": "9", "name": "H2", "lat": 39.8075, "lon": 3.3937, "depth": "45", "completed": "Si", "boat": "Rodman", "date": "2026-05-01"}, {"sheet": "Ictioplancton", "survey_short": "Ictioplancton", "key": "i", "shape": "diamond", "color": "#a13a5c", "id": "10", "name": "H3", "lat": 39.8245, "lon": 3.4, "depth": "50", "completed": "Si", "boat": "Rodman", "date": "2026-05-01"}];
+const SHEETS   = [{"name": "Censos Visual-Vídeo", "shape": "triangle", "color": "#2f5f8a", "key": "v", "short": "Visual/Vídeo", "count": 20}, {"name": "Muestras eDNA", "shape": "square", "color": "#3d7a4f", "key": "e", "short": "eDNA", "count": 23}, {"name": "Ictioplancton", "shape": "diamond", "color": "#a13a5c", "key": "i", "short": "Ictioplancton", "count": 10}];
 const INITIAL_VIEW = {center:[39.75,3.35], zoom:8};
 
 /* ============== ESTADO ============== */
 const layerVisible = {};
 SHEETS.forEach(s => layerVisible[s.key] = true);
 
-/* ============== MAPA BASE ============== */
+/* ============== MAPA BASE (estilo CARTO "Positron" — claro, editorial) ============== */
 const map = L.map('map', {center: INITIAL_VIEW.center, zoom: INITIAL_VIEW.zoom, zoomControl:true});
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-  maxZoom:19
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+  attribution:'&copy; OpenStreetMap, &copy; CARTO',
+  maxZoom:19, subdomains:'abcd'
+}).addTo(map);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png', {
+  maxZoom:19, subdomains:'abcd', opacity:.75
 }).addTo(map);
 
 const layerGroups = {};
@@ -239,55 +328,63 @@ SHEETS.forEach(s => { layerGroups[s.key] = L.layerGroup().addTo(map); });
 
 function resetView(){ map.setView(INITIAL_VIEW.center, INITIAL_VIEW.zoom); }
 
-/* ============== CONSTRUCCIÓN DINÁMICA DEL PANEL (resumen / filtros / leyenda) ============== */
+/* ============== FORMAS SVG por tipo (sello cartográfico, no burbuja) ============== */
+function shapeSvg(shape, color){
+  if (shape === 'triangle'){
+    return `<svg viewBox="0 0 16 16" width="16" height="16"><polygon points="8,1.5 14.5,13.5 1.5,13.5" fill="${color}" stroke="#faf9f5" stroke-width="1.2"/></svg>`;
+  }
+  if (shape === 'diamond'){
+    return `<svg viewBox="0 0 16 16" width="16" height="16"><polygon points="8,1 15,8 8,15 1,8" fill="${color}" stroke="#faf9f5" stroke-width="1.2"/></svg>`;
+  }
+  // square (por defecto)
+  return `<svg viewBox="0 0 16 16" width="16" height="16"><rect x="2" y="2" width="12" height="12" fill="${color}" stroke="#faf9f5" stroke-width="1.2"/></svg>`;
+}
+
+/* ============== CONSTRUCCIÓN DINÁMICA DEL PANEL ============== */
 function buildSidebarFromSheets(){
   const statsBox = document.getElementById('statsBox');
   const filterBox = document.getElementById('filterBox');
-  const legendBox = document.getElementById('legendBox');
+  let total = 0;
 
   SHEETS.forEach(s => {
-    const isSquare = s.shape === 'square';
+    total += s.count;
 
-    // --- resumen ---
     const row = document.createElement('div');
-    row.className = 'stat-row' + (isSquare ? ' is-square' : '');
-    row.innerHTML = `<span class="swatch" style="background:${s.color}"></span>
-                      <span class="label">${s.short}</span>
-                      <span class="value">${s.count}</span>`;
+    row.className = 'fig-row';
+    row.innerHTML = `<span class="fig-mark">${shapeSvg(s.shape, s.color)}</span>
+                      <span class="fig-name">${s.name}</span>
+                      <span class="fig-count">${s.count}</span>`;
     statsBox.appendChild(row);
 
-    // --- filtros ---
     const btn = document.createElement('button');
     btn.className = 'fbtn on';
     btn.dataset.key = s.key;
-    btn.innerHTML = `<span class="${isSquare ? 'swsq' : 'swc'}" style="background:${s.color}"></span>
-                      ${s.short}<span class="cnt">${s.count}</span>`;
+    btn.innerHTML = `<span class="fig-mark">${shapeSvg(s.shape, s.color)}</span>
+                      <span class="lbl">${s.name}</span>
+                      <span class="cnt">${s.count} estaciones</span>`;
     btn.onclick = () => toggleLayer(s.key, btn);
     filterBox.appendChild(btn);
-
-    // --- leyenda ---
-    const leg = document.createElement('div');
-    leg.className = 'legend-row';
-    leg.innerHTML = `<span class="${isSquare ? 'swsq' : 'swc'}" style="background:${s.color}"></span>${s.name}`;
-    legendBox.appendChild(leg);
   });
+
+  document.getElementById('totalCount').textContent = total;
 }
 buildSidebarFromSheets();
 
 /* ============== HELPERS ============== */
+function isDoneVal(v){ return v === 'Si' || v === 'Sí'; }
+
 function stationPassesFilter(rec){
   const mode = document.getElementById('stationFilter').value;
-  const isDone = rec.completed === 'Si' || rec.completed === 'Sí';
-  if (mode === 'Completadas') return isDone;
-  if (mode === 'Faltantes') return !isDone;
+  if (mode === 'Completadas') return isDoneVal(rec.completed);
+  if (mode === 'Faltantes') return !isDoneVal(rec.completed);
   return true;
 }
 
 function showInfo(rec){
   document.getElementById('infoEmpty').style.display = 'none';
   const c = document.getElementById('infoCard');
-  c.className = 'icard show';
-  const isDone = rec.completed === 'Si' || rec.completed === 'Sí';
+  c.className = 'scard show';
+  const done = isDoneVal(rec.completed);
   const rows = [
     ['ID', rec.id],
     ['Nombre / Código de estación', rec.name],
@@ -297,47 +394,27 @@ function showInfo(rec){
     ['Embarcación', rec.boat],
     ['Fecha', rec.date],
   ];
-  const rowsHtml = rows.map(([k,v], i) => {
-    const cls = (k === 'Completada') ? (isDone ? 'v done' : 'v pending') : 'v';
-    return `<div class="irow"><span class="k">${k}</span><span class="${cls}">${v}</span></div>`;
+  const rowsHtml = rows.map(([k,v]) => {
+    const cls = (k === 'Completada') ? (done ? 'v done' : 'v pending') : 'v';
+    return `<div class="sdrow"><span class="k">${k}</span><span class="${cls}">${v}</span></div>`;
   }).join('');
-  c.innerHTML = `<h4>${rec.name}</h4><span class="badge" style="background:${rec.color}">${rec.survey_short}</span><div>${rowsHtml}</div>`;
-}
-
-/* Calcula el tamaño del marcador para que el ID nunca quede cortado */
-function markerDims(rec){
-  const text = String(rec.id);
-  const base = 22;
-  const perChar = 8.5;
-  const w = Math.max(base, 14 + text.length * perChar);
-  const h = rec.shape === 'circle' ? Math.max(w, base) : base;
-  // para círculos, mantenemos proporción cuadrada salvo si el texto es muy largo (más de 2 caracteres)
-  if (rec.shape === 'circle' && text.length <= 2){
-    return {w: base, h: base};
-  }
-  return {w, h};
-}
-
-function markerHtml(rec, dims){
-  const shapeClass = rec.shape === 'circle' ? 'mk' : 'mk sq';
-  const doneClass = (rec.completed === 'Si' || rec.completed === 'Sí') ? '' : ' pending';
-  const fontSize = dims.w > 30 ? 10 : 10.5;
-  return `<div class="${shapeClass}${doneClass}" style="background:${rec.color};width:${dims.w}px;height:${dims.h}px;font-size:${fontSize}px">${rec.id}</div>`;
+  c.innerHTML = `<div class="scard-eyebrow" style="color:${rec.color}">${shapeSvg(rec.shape, rec.color)}&nbsp;${rec.survey_short}</div>
+                 <div class="scard-name">${rec.name}</div>
+                 <div>${rowsHtml}</div>`;
 }
 
 function makeMarker(rec){
-  const dims = markerDims(rec);
-  const icon = L.divIcon({
-    html: markerHtml(rec, dims),
-    className:'',
-    iconSize:[dims.w, dims.h],
-    iconAnchor:[dims.w/2, dims.h/2]
-  });
+  const done = isDoneVal(rec.completed);
+  const html = `<div class="mk-wrap${done ? '' : ' pending'}">
+                   <span class="mk-shape">${shapeSvg(rec.shape, rec.color)}</span>
+                   <span class="mk-id">${rec.id}</span>
+                 </div>`;
+  const icon = L.divIcon({ html, className:'', iconSize:[null,null], iconAnchor:[0,0] });
   const marker = L.marker([rec.lat, rec.lon], {icon, title: rec.name});
-  const isDone = (rec.completed === 'Si' || rec.completed === 'Sí') ? 'Sí' : 'No';
+  const doneLabel = done ? 'Sí' : 'No';
   marker.bindTooltip(
-    `<b>${rec.name}</b><br><span class="tip-sub">${rec.survey_short}</span><br>ID: ${rec.id}<br>Completada: ${isDone}`,
-    {direction:'top', offset:[0,-dims.h/2 - 2], opacity:0.97, className:'rc-tip'}
+    `<b>${rec.name}</b><br><span class="tip-sub">${rec.survey_short}</span><br>ID: ${rec.id} · Completada: ${doneLabel}`,
+    {direction:'top', offset:[0,-10], opacity:0.97, className:'rc-tip'}
   );
   marker.on('click', () => showInfo(rec));
   return marker;
