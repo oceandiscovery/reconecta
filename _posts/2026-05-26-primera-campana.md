@@ -2,14 +2,15 @@
 layout: post
 title: "Arranca la primera campaña de muestreo de RECONECTA en las Islas Baleares"
 date: 2026-05-26
+fecha: "26 de mayo de 2026"
 author: Equipo RECONECTA
 categories: noticias campaña
 image: /assets/img/noticias/2026-05-26-rodman.png
 ---
 
-El lunes 26 de mayo de 2026 comenzó la primera campaña oceanográfica del proyecto RECONECTA. El equipo partió desde Palma a bordo de la embarcación de investigación *Rodman* (IMEDEA-CSIC) rumbo a Cala Ratjada, en una travesía de siete horas que incluyó varias paradas de muestreo a lo largo de la costa suroriental y oriental de Mallorca.
+El lunes 25 de mayo de 2026 comenzó la primera campaña oceanográfica del proyecto RECONECTA. El equipo partió desde Palma a bordo de la embarcación de investigación *Rodman* (IMEDEA-CSIC) rumbo a Cala Ratjada, en una travesía de siete horas que incluyó varias paradas de muestreo a lo largo de la costa suroriental y oriental de Mallorca.
 
-![Equipo RECONECTA a bordo del Rodman durante la campaña del 26 de mayo de 2026]({{ site.baseurl }}/assets/img/noticias/2026-05-26-rodman.png)  
+![Equipo RECONECTA a bordo del Rodman durante la campaña del 25 de mayo de 2026]({{ site.baseurl }}/assets/img/noticias/2026-05-26-rodman.png)  
 *El B/I Rodman 11.20 del IMEDEA-CSIC, embarcación utilizada en la campaña.*
 
 El objetivo de la campaña es cuantificar la biodiversidad marina alrededor de las Islas Baleares mediante el análisis de ADN ambiental (eDNA). En cada estación de muestreo se recogen muestras de agua a distintas profundidades usando una bomba peristáltica sumergible que filtra el agua *in situ*, capturando el material genético disuelto y en suspensión.
@@ -30,4 +31,4 @@ Esta primera campaña marca el inicio de un plan de muestreo que cubrirá múlti
 Los datos obtenidos contribuirán a caracterizar la biodiversidad marina balear y a evaluar la conectividad entre poblaciones en un contexto de cambio global y presiones antrópicas.
 
 ---
-*Proyecto RECONECTA — IMEDEA (CSIC-UIB)*
+*Proyecto RECONECTA, IMEDEA (CSIC-UIB)*
