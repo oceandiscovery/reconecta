@@ -18,7 +18,7 @@ Las estaciones fueron Punta Nati y Cala Son Saura (27 de julio), Cala Sa Teula, 
 Los hábitats muestreados reflejan la diversidad de los fondos menorquines: praderas de *Posidonia oceanica* en Son Bou e Illa de l'Aire, fondos rocosos con *Posidonia* y algas en Fornells y Es Grau, y fondos detríticos y arenosos con rodolitos y algas rojas en Punta Nati y Cala Son Saura, donde también se observó *Cymodocea nodosa*.
 
 ![Pradera de Posidonia oceanica en l'Illa de l'Aire]({{ site.baseurl }}/assets/img/noticias/2026-07-menorca-illa-aire-posidonia.jpg)  
-*Pradera de *Posidonia oceanica* en la estación de l'Illa de l'Aire. Fotograma de vídeo submarino.*
+<em>Pradera de <span style="font-style: normal">Posidonia oceanica</span> en la estación de l'Illa de l'Aire. Fotograma de vídeo submarino.</em>
 
 ![Fondo rocoso con algas en Es Grau]({{ site.baseurl }}/assets/img/noticias/2026-07-menorca-es-grau.jpg)  
 *Fondo rocoso con algas rojas y pardas en Es Grau. Fotograma de vídeo submarino.*
