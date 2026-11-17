@@ -15,7 +15,7 @@ Nuestra jornada, *Reservas conectadas y consumo responsable: cocinar con el mar 
 **Programa del jueves 19 de noviembre**
 
 - De 9:00 a 10:30 h: visita del alumnado de 5.º y 6.º de primaria del CEIP Jafudà Cresques.
-- De 11:00 a 13:00 h: *showcooking* de recetas tradicionales con pescado local a cargo del Chef Diego, abierto a todos los públicos.
+- De 11:00 a 13:00 h: *showcooking* de recetas con pescado local a cargo del Chef Diego, abierto a todos los públicos.
 - Hasta las 14:00 h: encuentros con el equipo científico.
 
 ![Fichas de recetas de Ciència al Mercat: tartar de llampuga, ceviche de pampol, boquerones al minuto y pastel frío de salmonete]({{ site.baseurl }}/assets/img/noticias/2026-11-ciencia-al-mercat-recetas-es.jpg)  
